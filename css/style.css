@@ -1,0 +1,357 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #353535;
+  font-family: 'Poppins', sans-serif;
+}
+.father {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  min-height: 80vh;
+}
+@media (max-width: 992px) {
+  .father {
+    width: 90%;
+  }
+}
+@media (min-height: 100vh) {
+  .father {
+    margin-top: 50px;
+  }
+}
+.parent {
+  width: 100%;
+  background-color: rgb(239, 239, 239);
+}
+/* Global style */
+button {
+  border: none;
+  font-size: 20px;
+  box-shadow: 0px 3px 5px rgba(168, 168, 168, 0.38);
+  cursor: pointer;
+}
+.circular {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  .circular {
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+  }
+}
+/* Global style */
+
+/* Start Header */
+.header {
+  background-color: rgb(92, 52, 155);
+  color: white;
+  align-items: center;
+  padding: 4px 0;
+  width: 100%;
+  text-align: center;
+}
+.header h1 {
+  display: inline;
+}
+@media (max-width: 992px) {
+  .header h1 {
+    font-size: 22.5px;
+  }
+}
+.header .circular {
+  float: right;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+/* End Header */
+
+/* Start Tasks */
+.tasks {
+  padding: 20px;
+}
+@media (max-width: 992px) {
+  .tasks {
+    padding: 8px;
+  }
+}
+.task {
+  display: flex;
+  background-color: white;
+  padding: 8px 14px;
+  border-bottom: 1px solid black;
+  transition: box-shadow 0.3s;
+}
+@media (max-width: 992px) {
+  .task {
+    padding: 4px 8px;
+  }
+}
+.task:hover {
+  box-shadow: 0px 3px 15px rgba(97, 97, 97, 0.843);
+}
+.info {
+  width: 75%;
+}
+.info h3 {
+  font-weight: 500;
+}
+@media (max-width: 992px) {
+  .info {
+    width: 70%;
+  }
+  .info h3 {
+    font-size: 15px;
+  }
+  .info i {
+    font-size: 12px;
+  }
+  .info span {
+    font-size: 12px;
+  }
+}
+.actions {
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  .actions {
+    width: 30%;
+  }
+}
+.actions button {
+  color: white;
+}
+.actions button:first-of-type {
+  background-color: rgba(0, 16, 197, 0.692);
+}
+.actions button:nth-of-type(2) {
+  background-color: rgb(0, 150, 30);
+}
+.actions button:last-of-type {
+  background-color: rgb(114, 0, 0);
+}
+/* End Tasks */
+
+/* Start Create task */
+.create_task,
+.delete_task,
+.update_task {
+  width: 560px;
+  height: 220px;
+  background-color: #fff;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 15px rgba(97, 97, 97, 50.843);
+}
+@media (max-width: 992px) {
+  .create_task,
+  .delete_task,
+  .update_task {
+    width: 300px;
+    height: 120px;
+  }
+}
+.create_task h2,
+.update_task h2 {
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+@media (max-width: 992px) {
+  .create_task h2,
+  .update_task h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}
+.create_task input,
+.update_task input {
+  width: 380px;
+  border: none;
+  outline: none;
+  background-color: #eee;
+  border-bottom: 3px solid #ddd;
+  border-right: 2px solid #ddd;
+  padding: 10px;
+  padding-left: 15px;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+@media (max-width: 992px) {
+  .create_task input,
+  .update_task input {
+    width: 220px;
+    font-size: 13px;
+    padding: 4px;
+    padding-left: 8px;
+    margin-bottom: 10px;
+  }
+}
+.create_task input:focus,
+.update_task input:focus {
+  border-bottom: 3px solid #bcbcbc;
+  border-right: 2px solid #bcbcbc;
+}
+.create_task button,
+.update_task button {
+  padding: 5px 15px;
+  background-color: rgb(92, 52, 155);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+@media (max-width: 992px) {
+  .create_task button,
+  .update_task button {
+    padding: 2px 7px;
+    font-size: 13px;
+  }
+}
+.create_task button:hover {
+  background-color: rgb(92, 52, 200);
+}
+.create_task .close,
+.delete_task .close,
+.update_task .close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 300;
+  color: rgb(46, 46, 46);
+}
+@media (max-width: 992px) {
+  .create_task .close,
+  .delete_task .close,
+  .update_task .close {
+    font-size: 15px;
+    right: 5px;
+  }
+}
+/* End Create task */
+
+/* Start Delete task */
+.delete_task {
+  display: none;
+  width: 400px;
+  height: 150px;
+}
+@media (max-width: 992px) {
+  .delete_task {
+    width: 280px;
+    height: 110px;
+  }
+}
+.delete_task h2 {
+  font-weight: 400;
+  font-size: 20px;
+}
+@media (max-width: 992px) {
+  .delete_task h2 {
+    font-size: 15px;
+  }
+  .delete_task #title {
+    font-size: 13px;
+  }
+}
+.delete_task #title {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+@media (max-width: 992px) {
+  .delete_task #title {
+    font-size: 15px;
+  }
+}
+.delete_task .btns {
+  display: flex;
+  gap: 30px;
+}
+@media (max-width: 992px) {
+  .delete_task .btns {
+    gap: 15px;
+  }
+}
+.delete_task .btns button {
+  padding: 4px 10px;
+  color: white;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+@media (max-width: 992px) {
+  .delete_task .btns button {
+    font-size: 13px;
+    padding: 2px 8px;
+  }
+}
+.delete_task .btns button:first-child {
+  background-color: green;
+}
+.delete_task .btns button:first-child:hover {
+  background-color: rgb(0, 192, 0);
+}
+.delete_task .btns button:last-child {
+  background-color: red;
+}
+.delete_task .btns button:last-child:hover {
+  background-color: rgb(255, 72, 72);
+}
+/* End Delete task */
+
+/* Start Update task */
+.update_task button {
+  background-color: rgba(0, 16, 197, 0.692);
+}
+.update_task button:hover {
+  background-color: rgba(0, 16, 197, 1.692);
+}
+/* End Update task */
+
+/* Start done task */
+.done {
+  background-color: rgb(158, 253, 163);
+}
+/* End done task */
+
+#any_tasks {
+  font-weight: 500;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  font-size: 23px;
+  margin-bottom: 30px;
+  width: fit-content;
+  display: none;
+}
+@media (max-width: 992px) {
+  #any_tasks {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+}

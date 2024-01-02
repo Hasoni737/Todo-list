@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="icon" href="image/icon.png">
+  <!-- Main Style -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/all.min.css">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Cabin:wght@600&family=Cairo:wght@300;400;700&family=Geologica:wght@300&family=Inter:wght@400;600&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca&family=Nunito:wght@200;300;400;500;600;700&family=Open+Sans:wght@400;700&family=Oswald:wght@200;300;400;500;600;700&family=Playpen+Sans:wght@600&family=Poppins:wght@200;400;500;600;700;800;900&family=Prompt&family=Roboto:wght@300;400;500;700;900&family=Ubuntu:wght@500&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="father">
+    <div class="parent">
+      <!-- Header -->
+      <div class="header">
+        <h1>Todo List</h1>
+        <button id="add" class="circular" title="Add new task">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <!-- /Header -->
+
+      <!-- Tasks -->
+      <div class="tasks">
+      </div>
+      <!-- /Tasks -->
+      <h2 id="any_tasks">You don't have any tasks</h2>
+
+      <!-- Window Create task -->
+      <div class="create_task">
+        <div class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h2>Write name the task</h2>
+        <input type="text">
+        <button>Add</button>
+      </div>
+      <!-- Window Create task -->
+
+      <!-- Window delete task -->
+      <div class="delete_task">
+        <div class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h2>Are you sure to delete task : </h2>
+        <p id="title">Read a book</p>
+        <div class="btns">
+          <button onclick="okDelete()">Ok</button>
+          <button onclick="cancelDelete()">Cancel</button>
+        </div>
+      </div>
+      <!-- Window delete task -->
+
+      <!-- Window Create task -->
+      <div class="update_task">
+        <div class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h2>Write the new task name</h2>
+        <input type="text">
+        <button>Update</button>
+      </div>
+      <!-- Window Create task -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
