@@ -1,10 +1,10 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 body {
   background-color: #353535;
-  font-family: 'Poppins', sans-serif;
 }
 .father {
   display: flex;
@@ -58,12 +58,13 @@ button {
 
 /* Start Header */
 .header {
-  background-color: rgb(92, 52, 155);
+  background-color: #5c339e;
   color: white;
   align-items: center;
   padding: 4px 0;
   width: 100%;
   text-align: center;
+  position: relative;
 }
 .header h1 {
   display: inline;
@@ -152,7 +153,8 @@ button {
 /* Start Create task */
 .create_task,
 .delete_task,
-.update_task {
+.update_task,
+.clear_tasks {
   width: 560px;
   height: 220px;
   background-color: #fff;
@@ -198,7 +200,6 @@ button {
   padding: 10px;
   padding-left: 15px;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
 }
 @media (max-width: 992px) {
@@ -221,7 +222,6 @@ button {
   padding: 5px 15px;
   background-color: rgb(92, 52, 155);
   color: white;
-  font-family: 'Poppins', sans-serif;
   border-radius: 4px;
   transition: 0.3s;
 }
@@ -237,7 +237,8 @@ button {
 }
 .create_task .close,
 .delete_task .close,
-.update_task .close {
+.update_task .close,
+.clear_tasks .close {
   position: absolute;
   top: 0;
   right: 10px;
@@ -249,7 +250,8 @@ button {
 @media (max-width: 992px) {
   .create_task .close,
   .delete_task .close,
-  .update_task .close {
+  .update_task .close,
+  .clear_tasks .close {
     font-size: 15px;
     right: 5px;
   }
@@ -257,23 +259,27 @@ button {
 /* End Create task */
 
 /* Start Delete task */
-.delete_task {
+.delete_task,
+.clear_tasks {
   display: none;
   width: 400px;
   height: 150px;
 }
 @media (max-width: 992px) {
-  .delete_task {
+  .delete_task,
+  .clear_tasks {
     width: 280px;
     height: 110px;
   }
 }
-.delete_task h2 {
+.delete_task h2,
+.clear_tasks h2 {
   font-weight: 400;
   font-size: 20px;
 }
 @media (max-width: 992px) {
-  .delete_task h2 {
+  .delete_task h2,
+  .clear_tasks h2 {
     font-size: 15px;
   }
   .delete_task #title {
@@ -289,38 +295,45 @@ button {
     font-size: 15px;
   }
 }
-.delete_task .btns {
+.delete_task .btns,
+.clear_tasks .btns {
   display: flex;
   gap: 30px;
 }
 @media (max-width: 992px) {
-  .delete_task .btns {
+  .delete_task .btns,
+  .clear_tasks .btns {
     gap: 15px;
   }
 }
-.delete_task .btns button {
+.delete_task .btns button,
+.clear_tasks .btns button {
   padding: 4px 10px;
   color: white;
   border-radius: 4px;
-  font-family: 'Poppins', sans-serif;
   font-size: 15px;
 }
 @media (max-width: 992px) {
-  .delete_task .btns button {
+  .delete_task .btns button,
+  .clear_tasks .btns button {
     font-size: 13px;
     padding: 2px 8px;
   }
 }
-.delete_task .btns button:first-child {
+.delete_task .btns button:first-child,
+.clear_tasks .btns button:first-child {
   background-color: green;
 }
-.delete_task .btns button:first-child:hover {
+.delete_task .btns button:first-child:hover,
+.clear_tasks .btns button:first-child:hover {
   background-color: rgb(0, 192, 0);
 }
-.delete_task .btns button:last-child {
+.delete_task .btns button:last-child,
+.clear_tasks .btns button:last-child {
   background-color: red;
 }
-.delete_task .btns button:last-child:hover {
+.delete_task .btns button:last-child:hover,
+.clear_tasks .btns button:last-child:hover {
   background-color: rgb(255, 72, 72);
 }
 /* End Delete task */
@@ -355,3 +368,118 @@ button {
     margin-bottom: 15px;
   }
 }
+
+/* Start Count tasks */
+.count {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.count h3 {
+  font-weight: 500;
+}
+.count #clear_btn {
+  padding: 4px 10px;
+  background-color: rgb(92, 52, 155);
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.count #clear_btn:hover {
+  background-color: rgb(92, 52, 250);
+}
+@media (max-width: 992px) {
+  .count {
+    padding: 4px 8px 8px;
+  }
+  .count h3 {
+    font-size: 13px;
+  }
+  .count #clear_btn {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+}
+/* End Count tasks */
+/* Start Clear all tasks */
+.clear_tasks h2 {
+  margin-bottom: 20px;
+}
+/* End Clear all tasks */
+/* Start Colors */
+.setting {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+.setting #setting_btn {
+  background-color: transparent;
+  box-shadow: none;
+  color: white;
+}
+.setting #setting_btn_hide {
+  background-color: transparent;
+  box-shadow: none;
+  color: black;
+  display: none;
+}
+.setting_content {
+  width: 500px;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 0px 0px 15px rgba(97, 97, 97, 100.843);
+  border-radius: 5px;
+  position: absolute;
+  left: 30px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+.colors {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  /* padding: 10px; */
+}
+.colors h3 {
+  color: black;
+  font-weight: 600;
+  background-color: #eee;
+  height: 100%;
+  padding: 10px;
+}
+.colors h3 i {
+  margin-right: 5px;
+}
+.colors div {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+.colors div:hover {
+  border: 2px solid black;
+}
+.colors #red {
+  background-color: #E31B24;
+}
+.colors #green {
+  background-color: #05AC72;
+}
+.colors #blue {
+  background-color: #4188FF;
+}
+.colors #purple {
+  background-color: #5c349b;
+}
+.colors #orange {
+  background-color: #FF7400;
+}
+/* End Colors */

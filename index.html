@@ -19,6 +19,26 @@
     <div class="parent">
       <!-- Header -->
       <div class="header">
+        <!-- Setting -->
+        <div class="setting">
+          <button id="setting_btn" onclick="showSetting()">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <button id="setting_btn_hide" onclick="hideSetting()">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <div class="setting_content">
+            <div class="colors">
+              <h3><i class="fa-solid fa-palette"></i> Color</h3>
+              <div id="purple"></div>
+              <div id="red"></div>
+              <div id="green"></div>
+              <div id="blue"></div>
+              <div id="orange"></div>
+            </div>
+          </div>
+        </div>
+        <!-- /Setting -->
         <h1>Todo List</h1>
         <button id="add" class="circular" title="Add new task">
           <i class="fa-solid fa-plus"></i>
@@ -31,6 +51,10 @@
       </div>
       <!-- /Tasks -->
       <h2 id="any_tasks">You don't have any tasks</h2>
+      <div class="count">
+        <h3>You have 0 tasks</h3>
+        <button id="clear_btn" onclick="clearAll()">Clear All</button>
+      </div>
 
       <!-- Window Create task -->
       <div class="create_task">
@@ -67,6 +91,19 @@
         <button>Update</button>
       </div>
       <!-- Window Create task -->
+
+      <!-- Window clear tasks -->
+      <div class="clear_tasks">
+        <div class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h2>Are you sure you cleared all tasks ?</h2>
+        <div class="btns">
+          <button onclick="okDelete()">Ok</button>
+          <button onclick="cancelDelete()">Cancel</button>
+        </div>
+      </div>
+      <!-- Window clear tasks -->
     </div>
   </div>
   <script src="script.js"></script>
