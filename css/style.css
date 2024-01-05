@@ -482,4 +482,21 @@ button {
 .colors #orange {
   background-color: #FF7400;
 }
+@media (max-width: 767px) {
+  .setting_content {
+    width: 280px;
+    left: 20px;
+  }
+  .setting #setting_btn,
+  .setting #setting_btn_hide {
+    font-size: 15px;
+  }
+  .colors h3 {
+    font-size: 15px;
+  }
+  .colors div {
+    width: 15px;
+    height: 15px;
+  }
+}
 /* End Colors */
