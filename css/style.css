@@ -1,10 +1,12 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Tajawal', sans-serif; */
 }
 body {
   background-color: #353535;
+  font-family: 'Poppins', sans-serif;
 }
 .father {
   display: flex;
@@ -36,6 +38,10 @@ button {
   font-size: 20px;
   box-shadow: 0px 3px 5px rgba(168, 168, 168, 0.38);
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+input {
+  font-family: 'Poppins', sans-serif;
 }
 .circular {
   width: 40px;
@@ -84,6 +90,7 @@ button {
 /* Start Tasks */
 .tasks {
   padding: 20px;
+  min-height: 40px;
 }
 @media (max-width: 992px) {
   .tasks {
@@ -358,14 +365,16 @@ button {
   margin-left: 50%;
   transform: translateX(-50%);
   font-size: 23px;
-  margin-bottom: 30px;
   width: fit-content;
   display: none;
+  position: absolute;
+  color: black;
+  bottom: -57px;
 }
 @media (max-width: 992px) {
   #any_tasks {
     font-size: 13px;
-    margin-bottom: 15px;
+    bottom: -38px;
   }
 }
 
@@ -407,13 +416,14 @@ button {
   margin-bottom: 20px;
 }
 /* End Clear all tasks */
-/* Start Colors */
+/* Start Setting */
 .setting {
   display: flex;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 10px;
+  z-index: 99;
 }
 .setting #setting_btn {
   background-color: transparent;
@@ -438,21 +448,24 @@ button {
   flex-direction: column;
   overflow: hidden;
 }
-.colors {
+/* Start Colors */
+.setting_content > div {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   width: 100%;
-  /* padding: 10px; */
+  border-bottom: 1px solid #acacac;
 }
-.colors h3 {
+.setting_content > div > h3 {
   color: black;
   font-weight: 600;
   background-color: #eee;
   height: 100%;
   padding: 10px;
+  min-width: 120px;
+  text-align: start;
 }
-.colors h3 i {
+.setting_content > div > h3 i {
   margin-right: 5px;
 }
 .colors div {
@@ -469,29 +482,34 @@ button {
 }
 .colors #red {
   background-color: #E31B24;
+  margin-left: 5px;
 }
 .colors #green {
   background-color: #05AC72;
+  margin-left: 5px;
 }
 .colors #blue {
   background-color: #4188FF;
+  margin-left: 5px;
 }
 .colors #purple {
   background-color: #5c349b;
+  margin-left: 5px;
 }
 .colors #orange {
   background-color: #FF7400;
+  margin-left: 5px;
 }
 @media (max-width: 767px) {
   .setting_content {
-    width: 280px;
+    width: 345px;
     left: 20px;
   }
   .setting #setting_btn,
   .setting #setting_btn_hide {
     font-size: 15px;
   }
-  .colors h3 {
+  .setting_content > div > h3 {
     font-size: 15px;
   }
   .colors div {
@@ -500,3 +518,42 @@ button {
   }
 }
 /* End Colors */
+/* Start Language */
+.setting_content .language_name {
+  display: flex;
+  gap: 15px;
+}
+.setting_content .language h4 {
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+}
+.setting_content .language .language_name div img {
+  width: 22px;
+}
+@media (max-width: 767px) {
+  .setting_content .language_name {
+    gap: 0px;
+  }
+  .setting_content .language h4 {
+    font-weight: 400;
+    font-size: 15px;
+  }
+  .setting_content .language .language_name div img {
+    width: 15px;
+  }
+}
+.setting_content .language_name > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 7.5px 10px;
+  transition: 0.3s;
+}
+.setting_content .language_name > div:hover {
+  background-color: #efefef;
+  border-radius: 5px;
+}
+/* End Language */
+/* End Setting */

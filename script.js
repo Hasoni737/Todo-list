@@ -205,9 +205,10 @@ function countTasks() {
   };
   if (tasks.length > 0) {
     let count = document.querySelector(".count");
-    let h3 = document.querySelector(".count h3");
+    let count_span = document.querySelector(".count h3 span");
     count.style.display = "flex";
-    h3.innerHTML = `You have ${countTasksNotDone} pending tasks`;
+    count_span.innerHTML = `${countTasksNotDone}`;
+
   } else if (tasks.length === 0) {
     let count = document.querySelector(".count");
     count.style.display = "none";
@@ -223,7 +224,7 @@ function clearAll() {
   clear_tasks.style.display = "flex";
   // Confirm delete task
   ok.onclick = function () {
-    localStorage.clear();
+    localStorage.removeItem("tasks");
     tasks = [];
     checkEmptyTasks();
     countTasks();
@@ -261,7 +262,8 @@ function hideSetting() {
 let header = document.querySelector(".header");
 let clear_btn = document.querySelector(".count #clear_btn");
 let add_btn = document.querySelector(".create_task button");
-let icons = document.querySelector(".setting_content i");
+let icon_color = document.querySelector(".setting_content .colors i");
+let icon_language = document.querySelector(".setting_content .language i");
 let red = document.querySelector(".setting_content .colors #red");
 let green = document.querySelector(".setting_content .colors #green");
 let blue = document.querySelector(".setting_content .colors #blue");
@@ -274,7 +276,8 @@ purple.onclick = function () {
   header.style.backgroundColor = color;
   clear_btn.style.backgroundColor = color;
   add_btn.style.backgroundColor = color;
-  icons.style.color = color;
+  icon_color.style.color = color;
+  icon_language.style.color = color;
   setting_btn.style.display = "flex";
   setting_btn_hide.style.display = "none";
   settingDiv.style.display = "none";
@@ -285,7 +288,8 @@ red.onclick = function () {
   header.style.backgroundColor = color;
   clear_btn.style.backgroundColor = color;
   add_btn.style.backgroundColor = color;
-  icons.style.color = color;
+  icon_color.style.color = color;
+  icon_language.style.color = color;
   setting_btn.style.display = "flex";
   setting_btn_hide.style.display = "none";
   settingDiv.style.display = "none";
@@ -296,7 +300,8 @@ green.onclick = function () {
   header.style.backgroundColor = color;
   clear_btn.style.backgroundColor = color;
   add_btn.style.backgroundColor = color;
-  icons.style.color = color;
+  icon_color.style.color = color;
+  icon_language.style.color = color;
   setting_btn.style.display = "flex";
   setting_btn_hide.style.display = "none";
   settingDiv.style.display = "none";
@@ -307,7 +312,8 @@ blue.onclick = function () {
   header.style.backgroundColor = color;
   clear_btn.style.backgroundColor = color;
   add_btn.style.backgroundColor = color;
-  icons.style.color = color;
+  icon_color.style.color = color;
+  icon_language.style.color = color;
   setting_btn.style.display = "flex";
   setting_btn_hide.style.display = "none";
   settingDiv.style.display = "none";
@@ -318,7 +324,8 @@ orange.onclick = function () {
   header.style.backgroundColor = color;
   clear_btn.style.backgroundColor = color;
   add_btn.style.backgroundColor = color;
-  icons.style.color = color;
+  icon_color.style.color = color;
+  icon_language.style.color = color;
   setting_btn.style.display = "flex";
   setting_btn_hide.style.display = "none";
   settingDiv.style.display = "none";
@@ -326,5 +333,109 @@ orange.onclick = function () {
 header.style.backgroundColor = localStorage.getItem("color");
 clear_btn.style.backgroundColor = localStorage.getItem("color");
 add_btn.style.backgroundColor = localStorage.getItem("color");
-icons.style.color = localStorage.getItem("color");
+icon_color.style.color = localStorage.getItem("color");
+icon_language.style.color = localStorage.getItem("color");
+//--------------------------------------------------------------------//
+
+//------------------------- Change language ---------------------------
+// English
+function languageEnglish() {
+  localStorage.setItem("language", "english");
+  changeLanguage();
+};
+// Arab
+function languageArabic() {
+  localStorage.setItem("language", "arabic");
+  changeLanguage();
+};
+// Change language
+function changeLanguage() {
+  // Elements
+  let primary_title = document.querySelector(".primary_title");
+  let tasksDiv = document.querySelector(".tasks");
+  let count = document.querySelector(".count");
+  let count_h3 = document.querySelector(".count h3");
+  let create_task_title = document.querySelector(".create_task h2");
+  let create_task_btn = document.querySelector(".create_task button");
+  let create_task_input = document.querySelector(".create_task input");
+  let delete_task_title = document.querySelector(".delete_task h2");
+  let delete_task_ok = document.querySelector(".delete_task #ok");
+  let delete_task_cancel = document.querySelector(".delete_task #cancel");
+  let update_task_title = document.querySelector(".update_task h2");
+  let update_task_btn = document.querySelector(".update_task button");
+  let update_task_input = document.querySelector(".update_task input");
+  let clear_tasks_title = document.querySelector(".clear_tasks h2");
+  let clear_tasks_ok = document.querySelector(".clear_tasks #ok");
+  let clear_tasks_cancel = document.querySelector(".clear_tasks #cancel");
+  let any_tasks = document.querySelector("#any_tasks");
+  let allBtns = document.querySelectorAll('button');
+  let allInputs = document.querySelectorAll('input');
+  let body = document.querySelector("body");
+
+  // English
+  if (localStorage.getItem("language") === "english") {
+    primary_title.innerHTML = "Todo List";
+    tasksDiv.style.direction = "ltr";
+    count.style.direction = "ltr";
+    count_h3.innerHTML = "You have <span>0</span> pending tasks";
+    countTasks();
+    clear_btn.innerHTML = "Clear All";
+    create_task_title.innerHTML = "Write name the task";
+    create_task_btn.innerHTML = "Add";
+    create_task_input.style.direction = "ltr";
+    delete_task_title.innerHTML = "Are you sure to delete task : ";
+    delete_task_ok.innerHTML = "Ok";
+    delete_task_cancel.innerHTML = "Cancel";
+    update_task_title.innerHTML = "Write the new task name";
+    update_task_btn.innerHTML = "Update";
+    update_task_input.style.direction = "ltr";
+    clear_tasks_title.innerHTML = "Are you sure you cleared all tasks ?";
+    clear_tasks_ok.innerHTML = "Ok";
+    clear_tasks_cancel.innerHTML = "Cancel";
+    any_tasks.innerHTML = "You don't have any tasks";
+    // Change font
+    allBtns.forEach(function(element) {
+      var currentFont = window.getComputedStyle(element).fontFamily;
+      element.style.fontFamily = 'Poppins, sans-serif';
+    });
+    allInputs.forEach(function(element) {
+      var currentFont = window.getComputedStyle(element).fontFamily;
+      element.style.fontFamily = 'Poppins, sans-serif';
+    });
+    body.style.fontFamily = 'Poppins, sans-serif';
+  }
+  // Arabic
+  else if (localStorage.getItem("language") === "arabic"){
+    primary_title.innerHTML = "مهامي";
+    tasksDiv.style.direction = "rtl";
+    count.style.direction = "rtl";
+    count_h3.innerHTML = "لديك <span>0</span> مهام معلقة";
+    countTasks();
+    clear_btn.innerHTML = "مسح الكل";
+    create_task_title.innerHTML = "أكتب اسم المهمة";
+    create_task_btn.innerHTML = "اضافة";
+    create_task_input.style.direction = "rtl";
+    delete_task_title.innerHTML = ": هل أنت متأكد من حذف مهمة ";
+    delete_task_ok.innerHTML = "نعم";
+    delete_task_cancel.innerHTML = "الغاء";
+    update_task_title.innerHTML = "أكتب اسم المهمة الجديد";
+    update_task_btn.innerHTML = "تحديث";
+    update_task_input.style.direction = "rtl";
+    clear_tasks_title.innerHTML = "هل أنت متأكد من مسح جميع المهام ؟";
+    clear_tasks_ok.innerHTML = "نعم";
+    clear_tasks_cancel.innerHTML = "الغاء";
+    any_tasks.innerHTML = "ليس لديك أي مهام";
+    // Change font
+    allBtns.forEach(function(element) {
+        var currentFont = window.getComputedStyle(element).fontFamily;
+        element.style.fontFamily = 'Tajawal, sans-serif';
+    });
+    allInputs.forEach(function(element) {
+        var currentFont = window.getComputedStyle(element).fontFamily;
+        element.style.fontFamily = 'Tajawal, sans-serif';
+    });
+    body.style.fontFamily = 'Tajawal, sans-serif';
+  };
+};
+window.onload = changeLanguage();
 //--------------------------------------------------------------------//

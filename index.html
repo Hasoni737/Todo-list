@@ -13,7 +13,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Cabin:wght@600&family=Cairo:wght@300;400;700&family=Geologica:wght@300&family=Inter:wght@400;600&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca&family=Nunito:wght@200;300;400;500;600;700&family=Open+Sans:wght@400;700&family=Oswald:wght@200;300;400;500;600;700&family=Playpen+Sans:wght@600&family=Poppins:wght@200;400;500;600;700;800;900&family=Prompt&family=Roboto:wght@300;400;500;700;900&family=Ubuntu:wght@500&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Cabin:wght@600&family=Cairo:wght@300;400;700&family=Geologica:wght@300&family=Inter:wght@400;600&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca&family=Nunito:wght@200;300;400;500;600;700&family=Open+Sans:wght@400;700&family=Oswald:wght@200;300;400;500;600;700&family=Playpen+Sans:wght@600&family=Poppins:wght@200;400;500;600;700;800;900&family=Prompt&family=Roboto:wght@300;400;500;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Ubuntu:wght@500&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+<!-- done -->
 <body>
   <div class="father">
     <div class="parent">
@@ -36,13 +40,27 @@
               <div id="blue"></div>
               <div id="orange"></div>
             </div>
+            <div class="language">
+              <h3><i class="fa-solid fa-earth-americas"></i>Language</h3>
+              <div class="language_name">
+                <div id="en" onclick="languageEnglish()">
+                  <img src="image/english_icon.png" alt="English">
+                  <h4>English</h4>
+                </div>
+                <div id="ar" onclick="languageArabic()">
+                  <img src="image/sauadi.png" alt="Arabic">
+                  <h4>Arabic</h4>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- /Setting -->
-        <h1>Todo List</h1>
+        <h1 class="primary_title">Todo List</h1>
         <button id="add" class="circular" title="Add new task">
           <i class="fa-solid fa-plus"></i>
         </button>
+        <h2 id="any_tasks">You don't have any tasks</h2>
       </div>
       <!-- /Header -->
 
@@ -50,9 +68,9 @@
       <div class="tasks">
       </div>
       <!-- /Tasks -->
-      <h2 id="any_tasks">You don't have any tasks</h2>
+      
       <div class="count">
-        <h3>You have 0 tasks</h3>
+        <h3>You have <span></span> tasks</h3>
         <button id="clear_btn" onclick="clearAll()">Clear All</button>
       </div>
 
@@ -75,13 +93,13 @@
         <h2>Are you sure to delete task : </h2>
         <p id="title">Read a book</p>
         <div class="btns">
-          <button onclick="okDelete()">Ok</button>
-          <button onclick="cancelDelete()">Cancel</button>
+          <button id="ok" onclick="okDelete()">Ok</button>
+          <button id="cancel" onclick="cancelDelete()">Cancel</button>
         </div>
       </div>
       <!-- Window delete task -->
 
-      <!-- Window Create task -->
+      <!-- Window Update task -->
       <div class="update_task">
         <div class="close">
           <i class="fa-solid fa-xmark"></i>
@@ -90,7 +108,7 @@
         <input type="text">
         <button>Update</button>
       </div>
-      <!-- Window Create task -->
+      <!-- Window Update task -->
 
       <!-- Window clear tasks -->
       <div class="clear_tasks">
@@ -99,8 +117,8 @@
         </div>
         <h2>Are you sure you cleared all tasks ?</h2>
         <div class="btns">
-          <button onclick="okDelete()">Ok</button>
-          <button onclick="cancelDelete()">Cancel</button>
+          <button id="ok" onclick="okDelete()">Ok</button>
+          <button id="cancel" onclick="cancelDelete()">Cancel</button>
         </div>
       </div>
       <!-- Window clear tasks -->
